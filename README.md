@@ -21,8 +21,9 @@
   Add **libfftw3-3.lib**, **libfftw3f-3.lib**, **libfftw3l-3.lib** to the lib folder of the clion project.
 
   Then add the bin folder under the clion project folder to the environment variables.
-  In CMakeList.txt,add the following three lines:
+  In CMakeList.txt,add the following lines:
   ```
+  set(MY_BIN_DIR "${CMAKE_BINARY_DIR}/bin")
   set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib")
   link_directories(${LIB_DIR})
   target_link_libraries(your_project_name libfftw3-3.lib libfftw3f-3.lib  libfftw3l-3.lib)
