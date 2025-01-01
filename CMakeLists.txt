@@ -28,7 +28,6 @@ add_executable(scale_dtw_optimize LB_q.cpp
         fftw3.h
         ED.cpp
         ED.cpp
-        IP.cpp
 
         LB_t.cpp
         main.cpp

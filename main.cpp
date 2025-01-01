@@ -151,7 +151,6 @@ int main(int argc,char* argv[])
             exit(555);
             break;
         }
-
     }
     while(fscanf(qp,"%lf",&d) != EOF && i < m)
     {
@@ -401,17 +400,17 @@ int main(int argc,char* argv[])
         lbf_target = true;
     }
 
-    double c1 = Ip(UU,M,m);
-    double c2 = Ip(VV,M,m);
-    double c3 = Ip(u_q,M,m);
-    double c4 = Ip(l_q,M,m);
+    double c1 = dot_mul(UU,M,m);
+    double c2 = dot_mul(VV,M,m);
+    double c3 = dot_mul(u_q,M,m);
+    double c4 = dot_mul(l_q,M,m);
     double c12 = c1 + c2;
     double c34 = c3 + c4;
 
-    double c1_fast = Ip(UU,M_FAST,m);
-    double c2_fast = Ip(VV,M_FAST,m);
-    double c3_fast = Ip(u_q,M_FAST,m);
-    double c4_fast = Ip(l_q,M_FAST,m);
+    double c1_fast = dot_mul(UU,M_FAST,m);
+    double c2_fast = dot_mul(VV,M_FAST,m);
+    double c3_fast = dot_mul(u_q,M_FAST,m);
+    double c4_fast = dot_mul(l_q,M_FAST,m);
     double c12_fast = c1_fast + c2_fast;
     double c34_fast = c3_fast + c4_fast;
 

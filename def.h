@@ -10,10 +10,6 @@
 #include "fftw3.h"
 #include "string.h"
 #define BIN 600
-#define SEED 555
-
-#define OUT  "G:\\big_datas\\EEG\\fixed_r\\fixed_r_eeg_time_scale.txt"
-#define Q "G:\\big_datas\\EEG\\threshold\\longeegquery.txt"
 
 #define BI_T "..//data//bi_allecg.txt"
 #define Q0 "..//data//q//query_0.txt"
@@ -31,17 +27,7 @@ using namespace std;
 
 #define dist(x,y) ((x-y)*(x-y))
 
-#define INF 1e9       
-
-
-struct deque
-{   int *dq;
-    int size,capacity;
-    int f,r;
-};
-
-
-
+#define INF 1e9
 typedef struct Index
 {   double value;
     int    index;
