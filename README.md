@@ -29,6 +29,7 @@
   target_link_libraries(your_project_name libfftw3-3.lib libfftw3f-3.lib  libfftw3l-3.lib)
   ```
   After completing the above steps, you are ready to use the fftw library in this clion project.
+  If it does not work,you need to configure the FFTW library yourself.
 ## Usage Method 
 + File format
   Sequence data should be separated by Spaces or line breaks and stored in.txt files  
