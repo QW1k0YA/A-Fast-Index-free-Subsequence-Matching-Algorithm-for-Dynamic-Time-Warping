@@ -1,6 +1,6 @@
 # ninja log v5
 62	884	7572739685095807	CMakeFiles/scale_dtw_optimize.dir/lb_data.cpp.obj	a2435762a7a4b3b5
-2	859	7573268059410933	CMakeFiles/scale_dtw_optimize.dir/main.cpp.obj	d7d78adbffca843e
+2	1684	7574427897372527	CMakeFiles/scale_dtw_optimize.dir/main.cpp.obj	d7d78adbffca843e
 14	1101	7572568076507357	CMakeFiles/scale_dtw_optimize.dir/ED.cpp.obj	8d47a815aafd885f
 38	159	7572580760701542	CMakeFiles/scale_dtw_optimize.dir/IP.cpp.obj	6edf40103f777583
 57	894	7572739685256142	CMakeFiles/scale_dtw_optimize.dir/LB_PETITJEAN.cpp.obj	f07b6f282ce9f71e
@@ -19,7 +19,7 @@
 33	877	7572739685060482	CMakeFiles/scale_dtw_optimize.dir/LB_KK.cpp.obj	984de986040d153e
 43	160	7572580760701542	CMakeFiles/scale_dtw_optimize.dir/mvsum.cpp.obj	90de4c3c8ff54b5b
 25	820	7572463742398862	CMakeFiles/scale_dtw_optimize.dir/error.cpp.obj	5f5ede0a5e8aacd5
-860	1305	7573268063803497	scale_dtw_optimize.exe	d377d96e851be358
+1685	3003	7574427910281033	scale_dtw_optimize.exe	d377d96e851be358
 42	882	7572739685105782	CMakeFiles/scale_dtw_optimize.dir/dtw.cpp.obj	b12dcc1941b85e8f
 78	947	7572463743253828	CMakeFiles/scale_dtw_optimize.dir/cmpoffdouble.cpp.obj	b6336465ad08c43e
 939	1036	7572463745068676	CMakeFiles/scale_dtw_optimize.dir/mvvmin.cpp.obj	ec1215bcc9bc7f49
@@ -28,7 +28,5 @@
 28	879	7572739685050479	CMakeFiles/scale_dtw_optimize.dir/table_of_q.cpp.obj	ccd8a13ae19173a9
 51	880	7572739685060482	CMakeFiles/scale_dtw_optimize.dir/compute_M.cpp.obj	7467f279d6159a85
 46	885	7572739685155751	CMakeFiles/scale_dtw_optimize.dir/dot_mul.cpp.obj	28fe3f37b6f4b14e
-1	159	7573268495581394	build.ninja	cf853b0d6efef59c
+1	159	7578310475762471	build.ninja	cf853b0d6efef59c
 0	11	0	clean	66600bca832af6a2
-2	1684	7574427897372527	CMakeFiles/scale_dtw_optimize.dir/main.cpp.obj	d7d78adbffca843e
-1685	3003	7574427910281033	scale_dtw_optimize.exe	d377d96e851be358

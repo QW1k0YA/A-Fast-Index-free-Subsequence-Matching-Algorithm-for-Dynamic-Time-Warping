@@ -91,12 +91,6 @@ build CMakeFiles/scale_dtw_optimize.dir/ED.cpp.obj: CXX_COMPILER__scale_dtw_opti
   OBJECT_DIR = CMakeFiles\scale_dtw_optimize.dir
   OBJECT_FILE_DIR = CMakeFiles\scale_dtw_optimize.dir
 
-build CMakeFiles/scale_dtw_optimize.dir/IP.cpp.obj: CXX_COMPILER__scale_dtw_optimize_unscanned_Debug G$:/scale_dtw_optimize/IP.cpp || cmake_object_order_depends_target_scale_dtw_optimize
-  DEP_FILE = CMakeFiles\scale_dtw_optimize.dir\IP.cpp.obj.d
-  FLAGS = -O2 -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\scale_dtw_optimize.dir
-  OBJECT_FILE_DIR = CMakeFiles\scale_dtw_optimize.dir
-
 build CMakeFiles/scale_dtw_optimize.dir/LB_t.cpp.obj: CXX_COMPILER__scale_dtw_optimize_unscanned_Debug G$:/scale_dtw_optimize/LB_t.cpp || cmake_object_order_depends_target_scale_dtw_optimize
   DEP_FILE = CMakeFiles\scale_dtw_optimize.dir\LB_t.cpp.obj.d
   FLAGS = -O2 -g -fdiagnostics-color=always
@@ -177,7 +171,7 @@ build CMakeFiles/scale_dtw_optimize.dir/compute_M.cpp.obj: CXX_COMPILER__scale_d
 #############################################
 # Link the executable scale_dtw_optimize.exe
 
-build scale_dtw_optimize.exe: CXX_EXECUTABLE_LINKER__scale_dtw_optimize_Debug CMakeFiles/scale_dtw_optimize.dir/LB_q.cpp.obj CMakeFiles/scale_dtw_optimize.dir/lower_upper_lemire.cpp.obj CMakeFiles/scale_dtw_optimize.dir/normal_cdf.cpp.obj CMakeFiles/scale_dtw_optimize.dir/mvmean.cpp.obj CMakeFiles/scale_dtw_optimize.dir/ele_multi.cpp.obj CMakeFiles/scale_dtw_optimize.dir/sip.cpp.obj CMakeFiles/scale_dtw_optimize.dir/ED.cpp.obj CMakeFiles/scale_dtw_optimize.dir/IP.cpp.obj CMakeFiles/scale_dtw_optimize.dir/LB_t.cpp.obj CMakeFiles/scale_dtw_optimize.dir/main.cpp.obj CMakeFiles/scale_dtw_optimize.dir/ele_plus.cpp.obj CMakeFiles/scale_dtw_optimize.dir/mvsum.cpp.obj CMakeFiles/scale_dtw_optimize.dir/LB_KK.cpp.obj CMakeFiles/scale_dtw_optimize.dir/dtw.cpp.obj CMakeFiles/scale_dtw_optimize.dir/mask_T.cpp.obj CMakeFiles/scale_dtw_optimize.dir/table_of_q.cpp.obj CMakeFiles/scale_dtw_optimize.dir/LB_PETITJEAN.cpp.obj CMakeFiles/scale_dtw_optimize.dir/lb_data.cpp.obj CMakeFiles/scale_dtw_optimize.dir/dot_mul.cpp.obj CMakeFiles/scale_dtw_optimize.dir/compute_M.cpp.obj
+build scale_dtw_optimize.exe: CXX_EXECUTABLE_LINKER__scale_dtw_optimize_Debug CMakeFiles/scale_dtw_optimize.dir/LB_q.cpp.obj CMakeFiles/scale_dtw_optimize.dir/lower_upper_lemire.cpp.obj CMakeFiles/scale_dtw_optimize.dir/normal_cdf.cpp.obj CMakeFiles/scale_dtw_optimize.dir/mvmean.cpp.obj CMakeFiles/scale_dtw_optimize.dir/ele_multi.cpp.obj CMakeFiles/scale_dtw_optimize.dir/sip.cpp.obj CMakeFiles/scale_dtw_optimize.dir/ED.cpp.obj CMakeFiles/scale_dtw_optimize.dir/LB_t.cpp.obj CMakeFiles/scale_dtw_optimize.dir/main.cpp.obj CMakeFiles/scale_dtw_optimize.dir/ele_plus.cpp.obj CMakeFiles/scale_dtw_optimize.dir/mvsum.cpp.obj CMakeFiles/scale_dtw_optimize.dir/LB_KK.cpp.obj CMakeFiles/scale_dtw_optimize.dir/dtw.cpp.obj CMakeFiles/scale_dtw_optimize.dir/mask_T.cpp.obj CMakeFiles/scale_dtw_optimize.dir/table_of_q.cpp.obj CMakeFiles/scale_dtw_optimize.dir/LB_PETITJEAN.cpp.obj CMakeFiles/scale_dtw_optimize.dir/lb_data.cpp.obj CMakeFiles/scale_dtw_optimize.dir/dot_mul.cpp.obj CMakeFiles/scale_dtw_optimize.dir/compute_M.cpp.obj
   FLAGS = -O2 -g
   LINK_FLAGS = -static-libgcc -static-libstdc++
   LINK_LIBRARIES = -lfftw3-3  -lfftw3f-3  -lfftw3l-3  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

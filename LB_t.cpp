@@ -1,9 +1,7 @@
-
 #include "def.h"
 #include "funcs.h"
 #include "string.h"
 #include "fstream"
-
 using namespace std;
 /// similar to lbq
 /// we should calculate the Mask vector in MASK_T
@@ -14,7 +12,6 @@ LB_t_new(int m_k, int m, double lb[], double u[], double l[], double threshold, 
          double *re3, double *M_sum, double *M, double *UM, double *VM, double *UM_VM_plus, double *UM_VM_UM_VM,
          double *UMUM_VMVM, double Q_min, double **special_shared_vector, double lbq[], int bin[],
          double bin_num_divide_T_max_T_min)
-
 {
     m=m-6;
     int k_m_l = m_k - m + 1;

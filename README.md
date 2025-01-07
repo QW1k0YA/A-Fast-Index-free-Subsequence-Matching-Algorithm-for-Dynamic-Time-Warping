@@ -73,7 +73,7 @@
 + For Instance
   input:
   ```
-  scale_dtw_optimize 1024 0.02 0.5 0
+  scale_dtw_optimize.exe 1024 0.02 0.5 0
   ```
   as an example,we use the data in the Data folder as the default query and the queried sequence, in this case the ECG data. You can change the data set in the def.h file according to your needs.
   
