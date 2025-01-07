@@ -52,7 +52,6 @@ int main(int argc,char* argv[])
     m = atoi(argv[1]);
     R = atof(argv[2]);
     threshold = atof(argv[3]);
-    int q_n = atoi(argv[4]);
 
     m_k = 2048;
     while(m_k <= 4*m)
@@ -93,65 +92,8 @@ int main(int argc,char* argv[])
     ex_q = ex2_q = 0;
     int count = 0;
 
-    ///choose the query
-    switch (q_n)
-    {
-        case 0:
-        {
-            qp = fopen(Q0,"r");
-            break;
-        }
-        case 1:
-        {
-            qp = fopen(Q1,"r");
-            break;
-        }
-        case 2:
-        {
-            qp = fopen(Q2,"r");
-            break;
-        }
-        case 3:
-        {
-            qp = fopen(Q3,"r");
-            break;
-        }
-        case 4:
-        {
-            qp = fopen(Q4,"r");
-            break;
-        }
-        case 5:
-        {
-            qp = fopen(Q5,"r");
-            break;
-        }
-        case 6:
-        {
-            qp = fopen(Q6,"r");
-            break;
-        }
-        case 7:
-        {
-            qp = fopen(Q7,"r");
-            break;
-        }
-        case 8:
-        {
-            qp = fopen(Q8,"r");
-            break;
-        }
-        case 9:
-        {
-            qp = fopen(Q9,"r");
-            break;
-        }
-        default:
-        {
-            exit(555);
-            break;
-        }
-    }
+    ///read the time series and calculate the mean and std the query
+    qp = fopen(Q,"r");
     while(fscanf(qp,"%lf",&d) != EOF && i < m)
     {
         ex_q += d;

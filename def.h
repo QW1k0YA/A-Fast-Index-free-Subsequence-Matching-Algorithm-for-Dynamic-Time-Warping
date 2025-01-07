@@ -12,16 +12,7 @@
 #define BIN 600
 
 #define BI_T "..//data//bi_allecg.txt"
-#define Q0 "..//data//q//query_0.txt"
-#define Q1 "..//data//q//query_1.txt"
-#define Q2 "..//data//q//query_2.txt"
-#define Q3 "..//data//q//query_3.txt"
-#define Q4 "..//data//q//query_4.txt"
-#define Q5 "..//data//q//query_5.txt"
-#define Q6 "..//data//q//query_6.txt"
-#define Q7 "..//data//q//query_7.txt"
-#define Q8 "..//data//q//query_8.txt"
-#define Q9 "..//data//q//query_9.txt"
+#define Q "..//data//q//query_0.txt"
 
 using namespace std;
 

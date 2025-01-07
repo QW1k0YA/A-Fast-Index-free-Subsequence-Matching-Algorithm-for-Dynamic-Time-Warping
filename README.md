@@ -29,57 +29,48 @@
   ```
   After completing the above steps, you are ready to use the fftw library in this clion project.
   If there is an issue with linking the dynamic libraries, you can add the three DLL libraries to the system's PATH environment variable.
-## Usage Method 
-+ File format
-  Sequence data should be separated by Spaces or line breaks and stored in.txt files  
-  The query sequence is stored as a text type, while the queried sequence is stored as a **binary** format
-  These two formats can be converted using two.exe programs in the **binaryfile** folder.
-
+## INSTUCTIONS OF THE CODE
++ Both the query and the data to be searched should be formatted,where the numbers should be separated by spaces(' ') or line breaks('\n').  
+  Before the start of the searching,we should turn the data to be searched into **binary** format;
+  These two formats can be converted using two.exe programs in the **binaryfile** folder.  
   the usage is as follows:
   ```
-  file2binary.exe origin-file-path binary-file-path
+  file2binary.exe normal-file-path binary-file-path
   readbinary.exe binary-file-path normal-file-path
   ```
-+ File reading
-  you have to change the Path to the query sequence file and queried sequence file in **def.h**
-  + Query sequence
+  the normal-file-path points to an ASCII or Unicode file.
+  the binary-file-path points to the path where you store the binary file.
+
++ Configuration  
+  you should set the Path to the query file and the data to be searched file in **def.h** ( which defines all file paths).
+
+  + For Query: 
   ```
-  #define Q0 
-  #define Q1 
-  #define Q2 
-  #define Q3 
-  #define Q4 
-  #define Q5 
-  #define Q6 
-  #define Q7 
-  #define Q8 
-  #define Q9  
+  #define Q "path-to-your-query-file"
   ```
-  Q0~Q9 are normal .txt Query sequence files,so map your paths to them.
+  Q is an ASCII or Unicode Query sequence file,so map your path to it.
   
-  + Queried sequence file
+  + For the long series to be searched:
   ```
-  #define BI_T
+  #define BI_T "path-to-your-queried-binaryfile"
   ```
-  you MUST put the path to zhe **Binary-read-and-write** file here as the Queried sequence file.
+  Note the long series must be in the binary format, which can be obtained through file2binary.exe as mentioned above.
 
-+ Input parameter
-  there are totally 4 parameters you need to input.
-  1. argv[1] input the length of query subsequence.
-  2. argv[2] input the value of the relative width of warping path for Sakoe-Chiba band.
-  3. argv[2] input the threshold of DTW values.
-  4. argv[4] input the number of query subsequence,deciding which of the Q0-9 options to choose.
-
-+ For Instance
++ The executable file needs 3 parameters:
+  1. argv[1] is the length of query subsequence, which corresponds to $m$ in the paper.
+  2. argv[2] is the parameter controlling the width of warping path for Sakoe-Chiba band,
+where, w is set to  $\lceil m * argv[2] \rceil$.
+  3. argv[3] is the distance threshold for the subsequence matching problem, corresponds to $\epsilon$ in the paper.
++ For Example, 
   input:
   ```
-  scale_dtw_optimize.exe 1024 0.02 0.5 0
+  scale_dtw_optimize.exe 1024 0.02 0.5
   ```
-  as an example,we use the data in the Data folder as the default query and the queried sequence, in this case the ECG data. You can change the data set in the def.h file according to your needs.
+  is to perform query with $\epslion = 0.5$, $\lceil w= 1024* 0.02 \rceil =21$, the length of query $m=1024$ and the files storing the query and the series to be queryied are setted in "./def.h".
++ Some examples of queries and data series  are in "./Data/" (from the ECG dataset).
+  modify  "./def.h"  according to your needs.
   
-+ Supplementary statement
-  + All functions are defined in fun.h.
-  + All file paths are in def.h.
+
   
   
 
