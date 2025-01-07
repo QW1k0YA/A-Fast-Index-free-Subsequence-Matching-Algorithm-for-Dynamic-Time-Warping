@@ -59,14 +59,14 @@
 + The executable file needs 3 parameters:
   1. argv[1] is the length of query subsequence, which corresponds to $m$ in the paper.
   2. argv[2] is the parameter controlling the width of warping path for Sakoe-Chiba band,
-where, w is set to  $\lceil m * argv[2] \rceil$.
+where w is set to  $\lceil m * argv[2] \rceil$.
   3. argv[3] is the distance threshold for the subsequence matching problem, corresponds to $\epsilon$ in the paper.
 + For Example, 
   input:
   ```
   scale_dtw_optimize.exe 1024 0.02 0.5
   ```
-  is to perform query with $epslion = 0.5$, $\lceil w= 1024* 0.02 \rceil =21$, the length of query $m=1024$ and the files storing the query and the series to be queryied are setted in "./def.h".
+  is to perform query with $\epsilon = 0.5$, $\lceil w= 1024* 0.02 \rceil =21$, the length of query $m=1024$ and the files storing the query and the series to be queryied are setted in "./def.h".
 + Some examples of queries and data series  are in "./Data/" (from the ECG dataset).
   modify  "./def.h"  according to your needs.
   
