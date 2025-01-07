@@ -30,3 +30,5 @@
 46	885	7572739685155751	CMakeFiles/scale_dtw_optimize.dir/dot_mul.cpp.obj	28fe3f37b6f4b14e
 1	159	7578310475762471	build.ninja	cf853b0d6efef59c
 0	11	0	clean	66600bca832af6a2
+3	723	7579389456453081	CMakeFiles/scale_dtw_optimize.dir/LB_t.cpp.obj	eb8837f66ec175a1
+724	1378	7579389462923391	scale_dtw_optimize.exe	cf1e0fec9d57fa2b

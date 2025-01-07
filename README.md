@@ -17,19 +17,18 @@
   lib /machine:x64 /def:libfftw3l-3.def
    ```
   Add the **fftw3.h** file to the clion project folder;  
-  Add the **libfftw3-3.dll**, **libfftw3f-3.dll**,**libfftw3l-3.dll** files to the bin folder of the clion project;  
+  Add the **libfftw3-3.dll**, **libfftw3f-3.dll**,**libfftw3l-3.dll** files to the Executable directory;  
   Add **libfftw3-3.lib**, **libfftw3f-3.lib**, **libfftw3l-3.lib** to the lib folder of the clion project.
 
   Then add the bin folder under the clion project folder to the environment variables.
   In CMakeList.txt,add the following lines:
   ```
-  set(MY_BIN_DIR "${CMAKE_BINARY_DIR}/bin")
   set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib")
   link_directories(${LIB_DIR})
   target_link_libraries(your_project_name libfftw3-3.lib libfftw3f-3.lib  libfftw3l-3.lib)
   ```
   After completing the above steps, you are ready to use the fftw library in this clion project.
-  If it does not work,you need to configure the FFTW library yourself.
+  If there is an issue with linking the dynamic libraries, you can add the three DLL libraries to the system's PATH environment variable.
 ## Usage Method 
 + File format
   Sequence data should be separated by Spaces or line breaks and stored in.txt files  
