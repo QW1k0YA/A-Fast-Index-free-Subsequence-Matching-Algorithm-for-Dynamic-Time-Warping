@@ -66,7 +66,7 @@ where, w is set to  $\lceil m * argv[2] \rceil$.
   ```
   scale_dtw_optimize.exe 1024 0.02 0.5
   ```
-  is to perform query with $\repslion = 0.5$, $\lceil w= 1024* 0.02 \rceil =21$, the length of query $m=1024$ and the files storing the query and the series to be queryied are setted in "./def.h".
+  is to perform query with $epslion = 0.5$, $\lceil w= 1024* 0.02 \rceil =21$, the length of query $m=1024$ and the files storing the query and the series to be queryied are setted in "./def.h".
 + Some examples of queries and data series  are in "./Data/" (from the ECG dataset).
   modify  "./def.h"  according to your needs.
   
