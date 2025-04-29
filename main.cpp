@@ -241,20 +241,20 @@ int main(int argc,char* argv[])
     u_qo_[4] = u_q[m -2];    l_qo_[4] = l_q[m -2];
     u_qo_[5] = u_q[m -1];    l_qo_[5] = l_q[m -1];
 
-    double M[m];
-    
+    ///M_q is designed for lbq
+    double M_q[m];
     for(int p = 0;p < m;p++)
     {
-        if(normal_cdf(u_q[p]+pad_value) - normal_cdf(l_q[p]-pad_value) < 0.5) 
-            M[p] = 1;
+        if(normal_cdf(u_q[p]+pad_value) - normal_cdf(l_q[p]-pad_value) < 0.5)
+            M_q[p] = 1;
         else{
-            M[p] = 0;
+            M_q[p] = 0;
         }
     }
 
     int cnt_1 = 0;
     for(int ww = 0;ww < m;ww ++){
-        cnt_1 += M[ww];
+        cnt_1 += M_q[ww];
     }
     if(cnt_1 < 0.2*m)
     {
@@ -263,10 +263,10 @@ int main(int argc,char* argv[])
         {
             
             double local_pad_value = threshold/sqrt(0.2*m); 
-            local_pad_value=min(local_pad_value,0.05);
+            local_pad_value=MIN(local_pad_value, 0.05);
             if(normal_cdf(u_q[p]+local_pad_value) - normal_cdf(l_q[p]-local_pad_value) < 0.5) 
             {
-                M[p] = 1;
+                M_q[p] = 1;
                 added_count++;
             }
         }
@@ -274,9 +274,9 @@ int main(int argc,char* argv[])
     }
    
     cnt_1 = 0;
-    for(int ww = 0;ww < m;ww ++)  cnt_1 += M[ww];
+    for(int ww = 0;ww < m;ww ++)  cnt_1 += M_q[ww];
 
-    M[0]=0; M[1]=0; M[2]=0; M[m-1]=0; M[m-2]=0; M[m-3]=0;
+    M_q[0]=0; M_q[1]=0; M_q[2]=0; M_q[m - 1]=0; M_q[m - 2]=0; M_q[m - 3]=0;
 
     double* UM_lbq = NULL;
     double* VM_lbq = NULL;
@@ -290,8 +290,8 @@ int main(int argc,char* argv[])
     VV = (double*)malloc(m * sizeof(double));
     UV_PLUS_M = (double*)malloc(m * sizeof(double));
 
-    ele_multi(M,l_q,VM_lbq,m);
-    ele_multi(M,u_q,UM_lbq,m);
+    ele_multi(M_q, l_q, VM_lbq, m);
+    ele_multi(M_q, u_q, UM_lbq, m);
     ele_plus(UM_lbq,VM_lbq,UV_PLUS_M,m);
 
     double M_FAST[m];
@@ -312,7 +312,7 @@ int main(int argc,char* argv[])
     ele_multi(u_q,u_q,UU,m);
     ele_multi(l_q,l_q,VV,m);
 
-    inv_and_padding_y(m_k,m,M,YY_M,p_forward);
+    inv_and_padding_y(m_k, m, M_q, YY_M, p_forward);
     inv_and_padding_y(m_k,m,UV_PLUS_M,YY_UVM,p_forward);
     inv_and_padding_y(m_k,m,UV_PLUS_M_FAST,YY_UVM_FAST,p_forward);
 
@@ -333,7 +333,7 @@ int main(int argc,char* argv[])
     double  M_module_2_FAST = 0;
     for(i = 0;i < m;i++)
     {
-        M_module_2 += M[i];
+        M_module_2 += M_q[i];
         M_module_2_FAST += M_FAST[i];
     }
 
@@ -342,10 +342,10 @@ int main(int argc,char* argv[])
         lbf_target = true;
     }
 
-    double c1 = dot_mul(UU,M,m);
-    double c2 = dot_mul(VV,M,m);
-    double c3 = dot_mul(u_q,M,m);
-    double c4 = dot_mul(l_q,M,m);
+    double c1 = dot_mul(UU, M_q, m);
+    double c2 = dot_mul(VV, M_q, m);
+    double c3 = dot_mul(u_q, M_q, m);
+    double c4 = dot_mul(l_q, M_q, m);
     double c12 = c1 + c2;
     double c34 = c3 + c4;
 
@@ -409,7 +409,7 @@ int main(int argc,char* argv[])
     size_t bin_num = BIN;
     int bin[bin_num];
     memset(bin, 0, bin_num * sizeof(int));
-    q_max_cut=min(Q_max, 5.0); q_min_cut=max(Q_min, -5.0);
+    q_max_cut=MIN(Q_max, 5.0); q_min_cut=MAX(Q_min, -5.0);
     double bin_num_divide_Q_max_Q_min = (bin_num) / (q_max_cut - q_min_cut);
     for(i = 0;i < m;i++)
     {
@@ -580,7 +580,7 @@ int main(int argc,char* argv[])
                                     cb[k] = cb[k+1]+cb2[k];
                             }
 
-                            if(threshold >= dtw(q_z, t_temp_, m, r, threshold_2, cb))
+                            if(threshold >= MON_dtw(q_z, t_temp_, cb,m, r, threshold_2))
                             {
                                 
                                 A.push_back(ll*k_m_l  + p);

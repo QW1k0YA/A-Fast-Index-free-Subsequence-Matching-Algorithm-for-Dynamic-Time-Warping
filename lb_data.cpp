@@ -1,7 +1,7 @@
 
 #include "def.h"
 #include "funcs.h"
-#define dist(x,y) ((x-y)*(x-y))
+#define DIST(x,y) ((x-y)*(x-y))
 /// similar to lbq
 long long int
 lb_data(double *lb, double *M, double *q, long long m, double *U, double *L, double *miu, double *MQ, long long m_k,
@@ -69,7 +69,7 @@ lb_data(double *lb, double *M, double *q, long long m, double *U, double *L, dou
         {
             num_thre ++;
         }
-        lbq[i] = max(lbq[i],lb[i]);
+        lbq[i] = MAX(lbq[i], lb[i]);
     }
 
     return num_thre;

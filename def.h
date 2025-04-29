@@ -16,7 +16,9 @@
 
 using namespace std;
 
-#define dist(x,y) ((x-y)*(x-y))
+#define DIST(x,y) ((x-y)*(x-y))
+#define MIN(x,y) ((x)<(y)?(x):(y))
+#define MAX(x,y) ((x)>(y)?(x):(y))
 
 #define INF 1e9
 typedef struct Index

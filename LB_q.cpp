@@ -30,7 +30,7 @@ using namespace std;
 /// special_shared_vector :  A shared vector used to store the calculated distances for the left and right sides(lbkim).
 /// TT              : An array for storing the element-wise multiplication of t with itself.
 /// D_uv            : ED of UM and VM.
-int LB_q(double q[], double t[], int m_k, int m, double lb[], double threshold, double miu_[], double si_[],
+int LB_q(const double q[], double t[], int m_k, int m, double lb[], double threshold, double miu_[], double si_[],
          fftw_complex (*XX), fftw_complex (*YY), fftw_complex (*ZZ), fftw_plan p_forward, fftw_plan p_backward,
          fftw_complex (*YY_M), fftw_complex (*YY_UVM), double *TM_temp, double *TU_plus_VM_temp, double *TTM_temp,
          double M_sum, double c12, double c34, double **special_shared_vector, double TT[], double D_uv)
@@ -99,23 +99,23 @@ int LB_q(double q[], double t[], int m_k, int m, double lb[], double threshold, 
 
         double x0 = (t[i] - miu_[i]) / si_[i];
         double y0 = (t[(m - 1 + i)] - miu_[i]) / si_[i];
-        dleft = dist(x0, q[0]);
-        dright = dist(y0, q[m - 1]);
+        dleft = DIST(x0, q[0]);
+        dright = DIST(y0, q[m - 1]);
 
         if (lb2 + dleft + dright >= threshold2) {
             lb[i] = threshold + 100;
             continue;
         }
 
-        // Continue computing distances for the next points in the subsequence.
+        /// Continue computing distances for the next points in the subsequence.
         double x1 = (t[(i + 1)] - miu_[i]) / si_[i];
-        d = min(dist(x1, q[0]), dist(x0, q[1]));
-        d = min(d, dist(x1, q[1]));
+        d = MIN(DIST(x1, q[0]), DIST(x0, q[1]));
+        d = MIN(d, DIST(x1, q[1]));
         dleft += d;
 
         double y1 = (t[(m - 2 + i)] - miu_[i]) / si_[i];
-        d = min(dist(y1, q[m - 1]), dist(y0, q[m - 2]));
-        d = min(d, dist(y1, q[m - 2]));
+        d = MIN(DIST(y1, q[m - 1]), DIST(y0, q[m - 2]));
+        d = MIN(d, DIST(y1, q[m - 2]));
         dright += d;
 
         if (lb2 + dleft + dright >= threshold2) {
@@ -124,17 +124,17 @@ int LB_q(double q[], double t[], int m_k, int m, double lb[], double threshold, 
         }
 
         double x2 = (t[(i + 2)] - miu_[i]) / si_[i];
-        d = min(dist(x0, q[2]), dist(x1, q[2]));
-        d = min(d, dist(x2, q[2]));
-        d = min(d, dist(x2, q[1]));
-        d = min(d, dist(x2, q[0]));
+        d = MIN(DIST(x0, q[2]), DIST(x1, q[2]));
+        d = MIN(d, DIST(x2, q[2]));
+        d = MIN(d, DIST(x2, q[1]));
+        d = MIN(d, DIST(x2, q[0]));
         dleft += d;
 
         double y2 = (t[(m - 3 + i)] - miu_[i]) / si_[i];
-        d = min(dist(y0, q[m - 3]), dist(y1, q[m - 3]));
-        d = min(d, dist(y2, q[m - 3]));
-        d = min(d, dist(y2, q[m - 2]));
-        d = min(d, dist(y2, q[m - 1]));
+        d = MIN(DIST(y0, q[m - 3]), DIST(y1, q[m - 3]));
+        d = MIN(d, DIST(y2, q[m - 3]));
+        d = MIN(d, DIST(y2, q[m - 2]));
+        d = MIN(d, DIST(y2, q[m - 1]));
         dright += d;
 
 

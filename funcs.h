@@ -34,7 +34,7 @@ double  LB_KIM(double t[], double q[],double miu_[],double si_[],double threshol
 double dtw(double* A, double* B,  int m, int r, double threshold_2,double *cb);
 void lower_upper_lemire(double a[], int n, int r, double l[], double u[]);
 
-int LB_q(double q[], double t[], int m_k, int m, double lb[], double threshold, double miu_[], double si_[],
+int LB_q(const double q[], double t[], int m_k, int m, double lb[], double threshold, double miu_[], double si_[],
          fftw_complex (*XX), fftw_complex (*YY), fftw_complex (*ZZ), fftw_plan p_forward, fftw_plan p_backward,
          fftw_complex (*YY_M), fftw_complex (*YY_UVM), double *TM_temp, double *TU_plus_VM_temp, double *TTM_temp,
          double M_sum, double c12, double c34, double **special_shared_vector, double TT[], double D_uv);
@@ -51,7 +51,7 @@ LB_t_new(int m_k, int m, double lb[], double u[], double l[], double threshold, 
          double bin_num_divide_T_max_T_min);
 
 void getmin(double a[], int n, int r, double l[]);
-void table_of_q(double q[], int len, int r, double *result, double Q_min, double derta);
+void table_of_q(const double q[], int len, int r, double *result, double Q_min, double derta);
 int comp(const void *a, const void* b);
 int comp_(const void *a, const void* b);
 double dot_mul(const double *A,const double *B,long long len);
@@ -65,5 +65,13 @@ lb_data(double *lb, double *M, double *q, long long m, double *U, double *L, dou
 bool lbPetitjean_new(double p[], const double q[], double up[], double lp[], const double uq[], const double lq[],
                      const double x[], const double ux[], const double lx[], int w, int m, double threshold_2,
                      double &lbk2, double *cb, double miu, double si);
+double MON_dtw(
+        const double* lines,
+        const double* cols,
+        const double* cb,
+        int l,
+        int w,
+        double bsf
+);
 
 #endif 

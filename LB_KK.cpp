@@ -19,8 +19,8 @@ int comp_(const void *a, const void* b)
 /// q     : the query
 /// U, L  : upper and lower envelops for t.
 /// seqlen: the length of q
-/// miu_  : Mean values of t.
-/// si_   : Standard deviations of t.
+/// miu  : Mean values of t.
+/// si   : Standard deviations of t.
 /// t     : a circular array keeping the current data.
 /// cb    : (output) current bound at each position. It will be used later for early abandoning in DTW.
 /// order : sorted indices for the query.
@@ -78,9 +78,9 @@ bool LB_KK_norm_UL_on_the_fly(const double q[], const double U[], const double L
 /// cb    : (output) current bound at each position. It will be used later for early abandoning in DTW.
 /// order : sorted indices for the query.
 /// lbk  : the final value of LB_KK_norm_UL_on_the_fly
-/// tab_q : the dist has been already calculated,stored in tab_q
+/// tab_q : the DIST has been already calculated,stored in tab_q
 /// special_shared_vector :  A shared vector used to store the calculated distances for the left and right sides(lbkim).
-/// Q_min : the min value of Q
+/// Q_min : the MIN value of Q
 /// inv_derta : a constant which has been calculated in main.cpp
 bool LB_KK_norm_X_on_the_fly_enhance(const double x[], const double U[], const double L[], long long seqlen, double miu,
                                      double si, double threshold_2, const long long int order[], double cb[],
@@ -137,17 +137,17 @@ DOUBLE  LB_KIM(double t[], double q[],double miu_[],double si_[],double threshol
     double threshold2=threshold*threshold;
     double x0 = (t[i] - miu_[i]) / si_[i];
     double y0 = (t[(m-1+i)] - miu_[i]) / si_[i];
-    dleft=dist(x0,q[0]);
-    dright=dist(y0,q[m-1]);
+    dleft=DIST(x0, q[0]);
+    dright=DIST(y0, q[m - 1]);
 
     double x1 = (t[(i+1)] - miu_[i]) / si_[i];
-    d = min(dist(x1,q[0]), dist(x0,q[1]));
-    d = min(d, dist(x1,q[1]));
+    d = MIN(DIST(x1, q[0]), DIST(x0, q[1]));
+    d = MIN(d, DIST(x1, q[1]));
     dleft+=d;
 
     double y1 = (t[(m-2+i)] -  miu_[i]) / si_[i];
-    d = min(dist(y1,q[m-1]), dist(y0, q[m-2]) );
-    d = min(d, dist(y1,q[m-2]));
+    d = MIN(DIST(y1, q[m - 1]), DIST(y0, q[m - 2]) );
+    d = MIN(d, DIST(y1, q[m - 2]));
     dright+=d;
 
     if (dleft+dright  >=threshold2){
@@ -156,17 +156,17 @@ DOUBLE  LB_KIM(double t[], double q[],double miu_[],double si_[],double threshol
     else{
 
         double x2 = (t[(i+2)] -  miu_[i]) / si_[i];
-        d = min(dist(x0,q[2]), dist(x1, q[2]));
-        d = min(d, dist(x2,q[2]));
-        d = min(d, dist(x2,q[1]));
-        d = min(d, dist(x2,q[0]));
+        d = MIN(DIST(x0, q[2]), DIST(x1, q[2]));
+        d = MIN(d, DIST(x2, q[2]));
+        d = MIN(d, DIST(x2, q[1]));
+        d = MIN(d, DIST(x2, q[0]));
         dleft += d;
 
         double y2 = (t[(m-3+i)] -  miu_[i]) / si_[i];
-        d = min(dist(y0,q[m-3]), dist(y1, q[m-3]));
-        d = min(d, dist(y2,q[m-3]));
-        d = min(d, dist(y2,q[m-2]));
-        d = min(d, dist(y2,q[m-1]));
+        d = MIN(DIST(y0, q[m - 3]), DIST(y1, q[m - 3]));
+        d = MIN(d, DIST(y2, q[m - 3]));
+        d = MIN(d, DIST(y2, q[m - 2]));
+        d = MIN(d, DIST(y2, q[m - 1]));
         dright += d;
 
         if (dleft+dright  >=threshold2){

@@ -7,11 +7,12 @@ void mvsum(double *a,int len_a,int l,double *result)
         sum+= a[i];
     }
 
-    double ll = len_a - l +1;
-    for(int i = 0;i < ll;i++)
+    int ll = len_a - l +1;
+    for(int i = 0;i < ll-1;i++)
     {
         result[i] = sum;
         sum = sum - a[i] + a[i+l];
     }
+    result[ll-1] = sum;
 
 }

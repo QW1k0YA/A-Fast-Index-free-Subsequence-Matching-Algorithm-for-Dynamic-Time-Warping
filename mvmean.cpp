@@ -13,14 +13,15 @@ void mvmean(double *a,int len_a,int l,double *miu,double *si)
         sum2+= a[i]*a[i];
     }
 
-    double ll = len_a - l +1;
-    for(int i = 0;i < ll;i++)
+    int ll = len_a - l +1;
+    for(int i = 0;i < ll - 1;i++)
     {
         miu[i] = sum1/l;
         si[i] = sqrt(sum2/l-miu[i]*miu[i]);
         sum1 = sum1 - a[i] + a[i+l];
         sum2 = sum2 - a[i]*a[i] + a[i+l]*a[i+l];
     }
-
+    miu[ll-1] = sum1/l;
+    si[ll-1] = sqrt(sum2/l-miu[ll-1]*miu[ll-1]);
 }
 

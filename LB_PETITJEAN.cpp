@@ -1,7 +1,7 @@
 
 #include "def.h"
 #include "funcs.h"
-#define dist(x,y) ((x-y)*(x-y))
+#define DIST(x,y) ((x-y)*(x-y))
 /// a tighter lower bound
 bool lbPetitjean_new(double p[], const double q[], double up[], double lp[], const double uq[], const double lq[],
                      const double x[], const double ux[], const double lx[], int w, int m, double threshold_2,
@@ -22,10 +22,11 @@ bool lbPetitjean_new(double p[], const double q[], double up[], double lp[], con
 
     for(long long i = 3; i < m - 3 + w; i++)
     {
-        double ux_i = (ux[i] - miu)/si;
-        double lx_i = (lx[i] - miu)/si;
+
         if(i < m - 3)
         {
+            double ux_i = (ux[i] - miu)/si;
+            double lx_i = (lx[i] - miu)/si;
             if(q[i] > ux_i)
                 p[i] = ux_i;
             else if(q[i] < lx_i)
@@ -87,20 +88,20 @@ bool lbPetitjean_new(double p[], const double q[], double up[], double lp[], con
 
                 if(x[ii] > up[ii] && up[ii] > uq[ii])
                 {
-                     local_dist= (dist(x[ii],uq[ii]) - dist(up[ii],uq[ii]));
+                     local_dist= (DIST(x[ii], uq[ii]) - DIST(up[ii], uq[ii]));
 
                 }
                 else if(q[ii] < lp[ii] && lp[ii] < lq[ii])
                 {
-                    local_dist = (dist(x[ii],lq[ii]) - dist(lp[ii],lq[ii]));
+                    local_dist = (DIST(x[ii], lq[ii]) - DIST(lp[ii], lq[ii]));
                 }
                 else if(x[ii] > up[ii])
                 {
-                    local_dist = dist(x[ii],up[ii]);
+                    local_dist = DIST(x[ii], up[ii]);
                 }
                 else if(x[ii] < lp[ii])
                 {
-                    local_dist = dist(x[ii],lp[ii]);
+                    local_dist = DIST(x[ii], lp[ii]);
                 }
                 cb[ii]+=local_dist;
                 d+=local_dist;

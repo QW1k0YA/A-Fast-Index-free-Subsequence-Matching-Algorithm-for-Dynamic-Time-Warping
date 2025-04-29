@@ -6,7 +6,7 @@
 using namespace std;
 
 ///calculate the tab_q used in  LB_KK_norm_X_on_the_fly_enhance in advance,including some approximate distances
-void table_of_q(double q[], int len, int r, double *result, double Q_min, double derta)
+void table_of_q(const double q[], int len, int r, double *result, double Q_min, double derta)
 {
     
     double x[21];
